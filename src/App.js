@@ -6,6 +6,7 @@ export default function App() {
   const [todoInput, setTodoInput] = useState("");
 
   const addTodo = () => {
+    if (!todoInput) return;
     setTodos([...todos, todoInput]);
     setTodoInput("");
   };
@@ -13,6 +14,7 @@ export default function App() {
     <div className="App">
       <input
         type="text"
+        value={todoInput}
         onChange={(e) => setTodoInput(e.target.value)}
         placeholder="Enter Todo..."
       />
